@@ -1,0 +1,240 @@
+.testimonials {
+    margin: 80px auto;
+    padding: 0 80px;
+    position: relative;
+    min-height: 400px;
+}
+
+.testimonials.dark-mode {
+    color: var(--dark-text);
+}
+
+.next-btn,
+.back-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.back-btn {
+    left: 0;
+}
+
+.next-btn:hover,
+.back-btn:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.testimonials.dark-mode .next-btn,
+.testimonials.dark-mode .back-btn {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.slider {
+    overflow: hidden;
+    position: relative;
+    min-height: 300px;
+}
+
+.slide-wrapper {
+    width: 100%;
+}
+
+.slide {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 20px;
+    color: var(--text);
+    line-height: 1.8;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-base);
+}
+
+.testimonials.dark-mode .slide {
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--dark-text);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.slide img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 4px solid var(--primary);
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.testimonials.dark-mode .slide img {
+    border-color: var(--secondary);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.user-info h3 {
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.testimonials.dark-mode .user-info h3 {
+    color: var(--secondary);
+}
+
+.user-info span {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.testimonials.dark-mode .user-info span {
+    color: var(--dark-text-light);
+}
+
+.slide p {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.8;
+}
+
+.testimonials.dark-mode .slide p {
+    color: var(--dark-text-light);
+}
+
+.testimonial-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(37, 99, 235, 0.3);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    padding: 0;
+}
+
+.indicator.active {
+    background: var(--primary);
+    width: 30px;
+    border-radius: 6px;
+}
+
+.testimonials.dark-mode .indicator {
+    background: rgba(22, 163, 74, 0.3);
+}
+
+.testimonials.dark-mode .indicator.active {
+    background: var(--secondary);
+}
+
+/* Media Queries */
+@media (max-width: 1000px) {
+    .testimonials {
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 800px) {
+    .testimonials {
+        padding: 0 50px;
+    }
+    
+    .next-btn,
+    .back-btn {
+        padding: 12px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .slide {
+        padding: 30px;
+    }
+    
+    .slide img {
+        width: 60px;
+        height: 60px;
+        border-width: 3px;
+    }
+    
+    .user-info h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonials {
+        padding: 0 20px;
+    }
+    
+    .next-btn,
+    .back-btn {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
+    
+    .slide {
+        padding: 25px 20px;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    
+    .slide img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .user-info h3 {
+        font-size: 18px;
+    }
+    
+    .slide p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .testimonial-indicators {
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,106 @@
+import React from 'react';
+import './Programs.css';
+import { motion } from 'framer-motion';
+import program_1 from '../../assets/program-1.png';
+import program_2 from '../../assets/program-2.png';
+import program_3 from '../../assets/program-3.png';
+import program_icon_1 from '../../assets/program-icon-1.png';
+import program_icon_2 from '../../assets/program-icon-2.png';
+import program_icon_3 from '../../assets/program-icon-3.png';
+import { useTheme } from '../../context/ThemeContext';
+
+const programs = [
+  {
+    id: 1,
+    image: program_1,
+    icon: program_icon_1,
+    title: 'Graduation Degree',
+    description: 'Comprehensive undergraduate programs designed to build strong foundations'
+  },
+  {
+    id: 2,
+    image: program_2,
+    icon: program_icon_2,
+    title: 'Master Degree',
+    description: 'Advanced graduate programs for specialized knowledge and expertise'
+  },
+  {
+    id: 3,
+    image: program_3,
+    icon: program_icon_3,
+    title: 'Post Graduation',
+    description: 'Research and professional development programs for career advancement'
+  }
+];
+
+const Programs = () => {
+  const { isDarkMode } = useTheme();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  return (
+    <motion.section
+      className={`programs ${isDarkMode ? 'dark-mode' : ''}`}
+      id="program"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      {programs.map((program) => (
+        <motion.div
+          key={program.id}
+          className="program"
+          variants={cardVariants}
+          whileHover={{ y: -10 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <motion.img
+            src={program.image}
+            alt={program.title}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.div
+            className="caption"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.img
+              src={program.icon}
+              alt=""
+              initial={{ scale: 0, rotate: -180 }}
+              whileHover={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            />
+            <p>{program.title}</p>
+            <span className="program-description">{program.description}</span>
+          </motion.div>
+        </motion.div>
+      ))}
+    </motion.section>
+  );
+};
+
+export default Programs;

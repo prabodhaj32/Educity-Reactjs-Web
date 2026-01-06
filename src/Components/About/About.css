@@ -1,0 +1,144 @@
+.about {
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    gap: 50px;
+}
+
+.about-left {
+    flex-basis: 40%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    transition: transform var(--transition-base);
+}
+
+.play-icon {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
+    transition: all var(--transition-base);
+    z-index: 2;
+}
+
+.play-icon:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.4));
+}
+
+.about-right {
+    flex-basis: 56%;
+}
+
+.about h3 {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.about.dark-mode h3 {
+    color: var(--secondary);
+}
+
+.about h2 {
+    font-size: 42px;
+    color: var(--text);
+    margin: 10px 0 25px;
+    max-width: 500px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.about.dark-mode h2 {
+    color: var(--dark-text);
+}
+
+.about p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.about.dark-mode p {
+    color: var(--dark-text-light);
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .about {
+        gap: 40px;
+    }
+    
+    .about h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 800px) {
+    .about {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-left {
+        flex-basis: 100%;
+        order: 2;
+    }
+    
+    .about-right {
+        flex-basis: 100%;
+        order: 1;
+    }
+    
+    .about h2 {
+        font-size: 32px;
+        max-width: 100%;
+    }
+    
+    .play-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about {
+        width: 95%;
+        margin: 60px auto;
+    }
+    
+    .about h2 {
+        font-size: 28px;
+    }
+    
+    .about h3 {
+        font-size: 14px;
+    }
+    
+    .about p {
+        font-size: 15px;
+    }
+    
+    .play-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
