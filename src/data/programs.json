@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "type": "Graduation Degree",
+    "image": "/src/assets/program-1.png",
+    "icon": "/src/assets/program-icon-1.png",
+    "description": "Comprehensive undergraduate programs designed to build strong foundations",
+    "degrees": [
+      {
+        "id": 101,
+        "name": "Software Engineering",
+        "duration": "4 Years",
+        "price": "$25,000 - $35,000 per year",
+        "description": "Learn to design, develop, and maintain software systems. Covers programming languages, algorithms, data structures, software engineering principles, and modern development practices."
+      },
+      {
+        "id": 102,
+        "name": "Medicine",
+        "duration": "6 Years",
+        "price": "$40,000 - $50,000 per year",
+        "description": "Comprehensive medical education covering anatomy, physiology, pharmacology, clinical practice, and patient care. Prepares students for medical licensure and residency programs."
+      },
+      {
+        "id": 103,
+        "name": "Business Management",
+        "duration": "4 Years",
+        "price": "$28,000 - $38,000 per year",
+        "description": "Develop leadership and management skills for business environments. Covers organizational behavior, finance, marketing, operations, and strategic planning."
+      },
+      {
+        "id": 104,
+        "name": "Information Technology",
+        "duration": "4 Years",
+        "price": "$26,000 - $36,000 per year",
+        "description": "Comprehensive IT education covering networks, cybersecurity, databases, systems administration, and emerging technologies like cloud computing and AI."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "Master Degree",
+    "image": "/src/assets/program-2.png",
+    "icon": "/src/assets/program-icon-2.png",
+    "description": "Advanced graduate programs for specialized knowledge and expertise",
+    "degrees": [
+      {
+        "id": 201,
+        "name": "Computer Science",
+        "duration": "2 Years",
+        "price": "$30,000 - $45,000 per year",
+        "description": "Advanced study in algorithms, artificial intelligence, machine learning, software systems, and research methodologies. Prepares for PhD programs or senior technical roles."
+      },
+      {
+        "id": 202,
+        "name": "Business Administration (MBA)",
+        "duration": "2 Years",
+        "price": "$35,000 - $50,000 per year",
+        "description": "Executive-level business education covering strategic management, leadership, finance, marketing, and entrepreneurship. Designed for career advancement in business."
+      },
+      {
+        "id": 203,
+        "name": "Data Science",
+        "duration": "2 Years",
+        "price": "$32,000 - $47,000 per year",
+        "description": "Advanced analytics and machine learning education. Covers statistical methods, big data technologies, predictive modeling, and data visualization."
+      },
+      {
+        "id": 204,
+        "name": "Public Health",
+        "duration": "2 Years",
+        "price": "$28,000 - $42,000 per year",
+        "description": "Comprehensive study of population health, epidemiology, health policy, and community health interventions. Prepares for leadership in public health organizations."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "Post Graduation",
+    "image": "/src/assets/program-3.png",
+    "icon": "/src/assets/program-icon-3.png",
+    "description": "Research and professional development programs for career advancement",
+    "degrees": [
+      {
+        "id": 301,
+        "name": "PhD in Computer Science",
+        "duration": "4-6 Years",
+        "price": "$35,000 - $50,000 per year",
+        "description": "Original research in computer science. Students conduct independent research, publish papers, and contribute to the advancement of knowledge in their field."
+      },
+      {
+        "id": 302,
+        "name": "PhD in Business",
+        "duration": "4-6 Years",
+        "price": "$38,000 - $55,000 per year",
+        "description": "Advanced research in business disciplines. Focus on original contributions to business theory, empirical research, and academic scholarship."
+      },
+      {
+        "id": 303,
+        "name": "PhD in Medicine",
+        "duration": "3-5 Years",
+        "price": "$45,000 - $60,000 per year",
+        "description": "Advanced medical research and clinical training. Combines laboratory research, clinical trials, and specialized medical practice."
+      },
+      {
+        "id": 304,
+        "name": "PhD in Engineering",
+        "duration": "4-6 Years",
+        "price": "$36,000 - $52,000 per year",
+        "description": "Original research in engineering disciplines. Students develop innovative solutions, conduct experiments, and advance engineering knowledge."
+      }
+    ]
+  }
+]

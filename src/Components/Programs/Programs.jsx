@@ -1,40 +1,17 @@
 import React from 'react';
 import './Programs.css';
 import { motion } from 'framer-motion';
-import program_1 from '../../assets/program-1.png';
-import program_2 from '../../assets/program-2.png';
-import program_3 from '../../assets/program-3.png';
-import program_icon_1 from '../../assets/program-icon-1.png';
-import program_icon_2 from '../../assets/program-icon-2.png';
-import program_icon_3 from '../../assets/program-icon-3.png';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
-
-const programs = [
-  {
-    id: 1,
-    image: program_1,
-    icon: program_icon_1,
-    title: 'Graduation Degree',
-    description: 'Comprehensive undergraduate programs designed to build strong foundations'
-  },
-  {
-    id: 2,
-    image: program_2,
-    icon: program_icon_2,
-    title: 'Master Degree',
-    description: 'Advanced graduate programs for specialized knowledge and expertise'
-  },
-  {
-    id: 3,
-    image: program_3,
-    icon: program_icon_3,
-    title: 'Post Graduation',
-    description: 'Research and professional development programs for career advancement'
-  }
-];
+import programsData from '../../data/programs.json';
 
 const Programs = () => {
   const { isDarkMode } = useTheme();
+  const navigate = useNavigate();
+
+  const handleProgramClick = (programId) => {
+    navigate(`/programs/${programId}`);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -67,13 +44,15 @@ const Programs = () => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
-      {programs.map((program) => (
+      {programsData.map((program) => (
         <motion.div
           key={program.id}
           className="program"
           variants={cardVariants}
           whileHover={{ y: -10 }}
           transition={{ type: "spring", stiffness: 300 }}
+          onClick={() => handleProgramClick(program.id)}
+          style={{ cursor: 'pointer' }}
         >
           <motion.img
             src={program.image}
@@ -94,7 +73,7 @@ const Programs = () => {
               whileHover={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 200 }}
             />
-            <p>{program.title}</p>
+            <p>{program.type}</p>
             <span className="program-description">{program.description}</span>
           </motion.div>
         </motion.div>
