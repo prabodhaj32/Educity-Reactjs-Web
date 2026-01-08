@@ -1,13 +1,13 @@
 .Title {
     text-align: center;
     color: var(--primary);
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 70px 0 30px;
+    letter-spacing: 3px;
+    margin: 90px 0 40px;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
 
 .Title::after {
@@ -16,19 +16,37 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    border-radius: 2px;
+    width: 100px;
+    height: 5px;
+    background: var(--gradient-mixed);
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.4);
+}
+
+.Title::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    opacity: 0.6;
 }
 
 .Title h2 {
-    font-size: 42px;
-    color: var(--text);
-    margin-top: 15px;
+    font-size: 48px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 20px;
     text-transform: none;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.2;
+    letter-spacing: -1px;
 }
 
 body.dark-mode .Title {
@@ -37,10 +55,18 @@ body.dark-mode .Title {
 
 body.dark-mode .Title::after {
     background: linear-gradient(90deg, var(--secondary), var(--accent));
+    box-shadow: 0 2px 12px rgba(22, 163, 74, 0.4);
+}
+
+body.dark-mode .Title::before {
+    background: var(--accent-light);
 }
 
 body.dark-mode .Title h2 {
-    color: var(--dark-text);
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Media Queries */

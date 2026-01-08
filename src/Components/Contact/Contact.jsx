@@ -82,7 +82,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                 >
-                    Send us a message <img src={msg_icon} alt="" />
+                    Send us a message <img src={msg_icon} alt="" aria-hidden="true" />
                 </motion.h3>
                 <p>
                     We're here to help! Whether you have questions about our programs, admissions, or campus life, 
@@ -191,7 +191,7 @@ const Contact = () => {
                         whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                     >
                         {isSubmitting ? 'Sending...' : 'Submit now'} 
-                        {!isSubmitting && <img src={white_arrow} alt="" />}
+                        {!isSubmitting && <img src={white_arrow} alt="" aria-hidden="true" />}
                     </motion.button>
                 </form>
                 {result && (

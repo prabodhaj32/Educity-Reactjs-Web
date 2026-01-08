@@ -15,6 +15,7 @@ const userImages = [user_1, user_2, user_3, user_4];
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
   const { isDarkMode } = useTheme();
 
   useEffect(() => {
@@ -27,10 +28,12 @@ const Testimonials = () => {
   }, []);
 
   const slideForward = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0));
   };
 
   const slideBackward = () => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1));
   };
 
@@ -86,11 +89,11 @@ const Testimonials = () => {
       />
       
       <div className="slider">
-        <AnimatePresence mode="wait" custom={currentIndex}>
+        <AnimatePresence mode="wait" custom={direction}>
           {testimonials.length > 0 && (
             <motion.div
               key={currentIndex}
-              custom={currentIndex}
+              custom={direction}
               variants={slideVariants}
               initial="enter"
               animate="center"
@@ -134,7 +137,10 @@ const Testimonials = () => {
           <motion.button
             key={index}
             className={`indicator ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              setDirection(index > currentIndex ? 1 : -1);
+              setCurrentIndex(index);
+            }}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             aria-label={`Go to testimonial ${index + 1}`}

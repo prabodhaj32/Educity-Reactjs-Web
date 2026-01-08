@@ -271,6 +271,17 @@ const DegreeDetails = () => {
             className="inquire-btn"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                navigate('/');
+                setTimeout(() => {
+                  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              } else {
+                navigate('/');
+              }
+            }}
           >
             Inquire
           </motion.button>

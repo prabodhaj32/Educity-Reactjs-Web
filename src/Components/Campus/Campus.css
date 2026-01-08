@@ -1,7 +1,19 @@
 .campus {
-    margin: 80px auto;
+    margin: 100px auto;
     width: 90%;
     text-align: center;
+    padding: 40px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lg);
+}
+
+.campus.dark-mode {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .gallery {
@@ -14,22 +26,31 @@
 
 .gallery-image {
     width: 23%;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
     object-fit: cover;
-    height: 250px;
-    box-shadow: var(--shadow-md);
+    height: 280px;
+    box-shadow: var(--shadow-lg);
     transition: all var(--transition-base);
     cursor: pointer;
+    border: 3px solid transparent;
+    filter: brightness(1.05) saturate(1.1);
 }
 
 .gallery-image:hover {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-2xl);
     z-index: 1;
     position: relative;
+    transform: scale(1.05) translateY(-8px);
+    border-color: var(--primary);
+    filter: brightness(1.15) saturate(1.2);
 }
 
 .campus.dark-mode .gallery-image {
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.campus.dark-mode .gallery-image:hover {
+    border-color: var(--secondary);
 }
 
 .campus .btn {

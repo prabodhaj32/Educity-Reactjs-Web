@@ -65,8 +65,16 @@ const Campus = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.4 }}
+        onClick={() => {
+          // Scroll to gallery section or could navigate to a dedicated gallery page
+          const gallerySection = document.getElementById('campus');
+          if (gallerySection) {
+            gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }}
+        aria-label="View more campus photos"
       >
-        See more here <img src={white_arrow} alt="" />
+        See more here <img src={white_arrow} alt="" aria-hidden="true" />
       </motion.button>
     </motion.section>
   );

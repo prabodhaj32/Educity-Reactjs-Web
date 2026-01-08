@@ -2,7 +2,8 @@ import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css';
 import { motion } from 'framer-motion';
 import logo from '../../assets/logo.png';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import menu_icon from '../../assets/menu-icon.png';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -24,6 +25,9 @@ const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
 
   // Handle scroll for sticky navbar
   useEffect(() => {
@@ -53,6 +57,26 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, []);
 
+  // Handle navigation - navigate to home first if not on home page
+  const handleNavClick = useCallback((link) => {
+    if (!isHomePage) {
+      navigate('/');
+      // Wait for navigation and DOM update before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(link.to);
+        if (element) {
+          const offset = link.offset || -100;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition + offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 200);
+    }
+  }, [isHomePage, navigate]);
+
   // Toggle mobile menu
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
@@ -74,31 +98,47 @@ const Navbar = () => {
     >
       <div className="navbar-container">
         {/* Logo */}
-        <motion.img
-          src={logo}
-          alt="Edusity Logo"
-          className="logo"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        />
+        <RouterLink to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <motion.img
+            src={logo}
+            alt="Edusity Logo"
+            className="logo"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          />
+        </RouterLink>
 
         {/* Navigation Links */}
         <ul className={isMobileMenuOpen ? 'mobile-menu-open' : 'hide-mobile-menu'}>
           {NAV_LINKS.map((link) => (
             <li key={link.to}>
-              <Link
-                to={link.to}
-                smooth={true}
-                offset={link.offset}
-                duration={500}
-                spy={true}
-                activeClass="active"
-                className={link.isButton ? 'btn' : ''}
-                onClick={handleLinkClick}
-              >
-                {link.label}
-              </Link>
+              {isHomePage ? (
+                <ScrollLink
+                  to={link.to}
+                  smooth={true}
+                  offset={link.offset}
+                  duration={500}
+                  spy={true}
+                  activeClass="active"
+                  className={link.isButton ? 'btn' : ''}
+                  onClick={handleLinkClick}
+                >
+                  {link.label}
+                </ScrollLink>
+              ) : (
+                <RouterLink
+                  to="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link);
+                    handleLinkClick();
+                  }}
+                  className={link.isButton ? 'btn' : ''}
+                >
+                  {link.label}
+                </RouterLink>
+              )}
             </li>
           ))}
         </ul>
@@ -122,7 +162,7 @@ const Navbar = () => {
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
-            <img src={menu_icon} alt="" className="menu-icon" />
+            <img src={menu_icon} alt="" className="menu-icon" aria-hidden="true" />
           </motion.button>
         </div>
       </div>

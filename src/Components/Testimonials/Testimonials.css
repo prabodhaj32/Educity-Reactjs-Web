@@ -1,8 +1,8 @@
 .testimonials {
-    margin: 80px auto;
+    margin: 100px auto;
     padding: 0 80px;
     position: relative;
-    min-height: 400px;
+    min-height: 450px;
 }
 
 .testimonials.dark-mode {
@@ -15,18 +15,20 @@
     top: 50%;
     transform: translateY(-50%);
     padding: 15px;
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     cursor: pointer;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: var(--shadow-md);
+    background: var(--gradient-mixed);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-colored);
     z-index: 10;
-    transition: all var(--transition-base);
+    transition: all var(--transition-bounce);
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .next-btn {
@@ -39,9 +41,10 @@
 
 .next-btn:hover,
 .back-btn:hover {
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: var(--shadow-lg);
+    background: var(--gradient-accent);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: var(--shadow-colored-lg);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .testimonials.dark-mode .next-btn,
@@ -61,15 +64,29 @@
 }
 
 .slide {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    padding: 50px;
-    border-radius: 20px;
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 60px;
+    border-radius: var(--radius-2xl);
     color: var(--text);
-    line-height: 1.8;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--glass-border);
+    line-height: 1.9;
+    box-shadow: var(--shadow-xl);
+    border: 2px solid var(--glass-border);
     transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-mixed);
+    opacity: 0.8;
 }
 
 .testimonials.dark-mode .slide {
@@ -79,14 +96,21 @@
 }
 
 .slide img {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    margin-right: 20px;
-    border: 4px solid var(--primary);
+    margin-right: 25px;
+    border: 5px solid var(--primary);
     object-fit: cover;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     transition: all var(--transition-base);
+    filter: brightness(1.05);
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+    border-color: var(--secondary);
+    box-shadow: var(--shadow-xl);
 }
 
 .testimonials.dark-mode .slide img {
@@ -101,10 +125,14 @@
 }
 
 .user-info h3 {
-    color: var(--primary);
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 5px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
 }
 
 .testimonials.dark-mode .user-info h3 {
@@ -141,17 +169,24 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    border: none;
+    border: 2px solid transparent;
     background: rgba(37, 99, 235, 0.3);
     cursor: pointer;
     transition: all var(--transition-base);
     padding: 0;
 }
 
+.indicator:hover {
+    background: rgba(37, 99, 235, 0.5);
+    transform: scale(1.2);
+}
+
 .indicator.active {
     background: var(--primary);
-    width: 30px;
-    border-radius: 6px;
+    width: 36px;
+    border-radius: var(--radius-full);
+    border-color: var(--primary);
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
 }
 
 .testimonials.dark-mode .indicator {

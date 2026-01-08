@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import programsData from '../../data/programs.json';
 import './DegreeProgramsList.css';
-import './DegreeProgramsList.css';
 
 const DegreeProgramsList = () => {
   const { programId } = useParams();

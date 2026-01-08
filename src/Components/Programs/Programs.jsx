@@ -68,7 +68,7 @@ const Programs = () => {
           >
             <motion.img
               src={program.icon}
-              alt=""
+              alt={`${program.type} icon`}
               initial={{ scale: 0, rotate: -180 }}
               whileHover={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 200 }}
