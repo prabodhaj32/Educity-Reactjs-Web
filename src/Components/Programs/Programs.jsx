@@ -4,6 +4,21 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import programsData from '../../data/programs.json';
+import program_1 from '../../assets/program-1.png';
+import program_2 from '../../assets/program-2.png';
+import program_3 from '../../assets/program-3.png';
+import program_icon_1 from '../../assets/program-icon-1.png';
+import program_icon_2 from '../../assets/program-icon-2.png';
+import program_icon_3 from '../../assets/program-icon-3.png';
+
+const imageMap = {
+  '/src/assets/program-1.png': program_1,
+  '/src/assets/program-2.png': program_2,
+  '/src/assets/program-3.png': program_3,
+  '/src/assets/program-icon-1.png': program_icon_1,
+  '/src/assets/program-icon-2.png': program_icon_2,
+  '/src/assets/program-icon-3.png': program_icon_3,
+};
 
 const Programs = () => {
   const { isDarkMode } = useTheme();
@@ -55,7 +70,7 @@ const Programs = () => {
           style={{ cursor: 'pointer' }}
         >
           <motion.img
-            src={program.image}
+            src={imageMap[program.image]}
             alt={program.title}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -67,8 +82,8 @@ const Programs = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.img
-              src={program.icon}
-              alt={`${program.type} icon`}
+              src={imageMap[program.icon]}
+              alt=""
               initial={{ scale: 0, rotate: -180 }}
               whileHover={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 200 }}

@@ -4,6 +4,15 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import programsData from '../../data/programs.json';
 import './DegreeProgramsList.css';
+import program_1 from '../../assets/program-1.png';
+import program_2 from '../../assets/program-2.png';
+import program_3 from '../../assets/program-3.png';
+
+const imageMap = {
+  '/src/assets/program-1.png': program_1,
+  '/src/assets/program-2.png': program_2,
+  '/src/assets/program-3.png': program_3,
+};
 
 const DegreeProgramsList = () => {
   const { programId } = useParams();
@@ -55,7 +64,7 @@ const DegreeProgramsList = () => {
         >
           <div className="program-image">
             <motion.img
-              src={program.image}
+              src={imageMap[program.image]}
               alt={program.type}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}

@@ -4,6 +4,7 @@ import './Hero.css';
 import { Link } from 'react-scroll';
 import dark_arrow from '../../assets/dark-arrow.png';
 import play_icon from '../../assets/play-icon.png';
+import hero_img from '../../assets/hero.png';
 
 // Animation variants for staggered entrance
 const containerVariants = {
@@ -69,6 +70,7 @@ const Hero = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
+      style={{ backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(99, 102, 241, 0.80) 30%, rgba(139, 92, 246, 0.75) 60%, rgba(37, 99, 235, 0.80) 100%), url(${hero_img})` }}
     >
       {/* Floating gradient shapes */}
       <div className="hero-shapes">

@@ -63,12 +63,12 @@ const App = () => {
 
   return (
     <div>
-      {/* Navigation Bar - Available on all routes */}
-      <Navbar />
-      
       <Routes>
         <Route path="/" element={
           <>
+            {/* Navigation Bar */}
+            <Navbar />
+
             {/* Hero Section */}
             <Hero />
 
@@ -104,18 +104,8 @@ const App = () => {
             <VideoPlayer playState={playState} setPlayState={setPlayState} />
           </>
         } />
-        <Route path="/programs/:programId" element={
-          <>
-            <DegreeProgramsList />
-            <Footer />
-          </>
-        } />
-        <Route path="/degree/:degreeId" element={
-          <>
-            <DegreeDetails />
-            <Footer />
-          </>
-        } />
+        <Route path="/programs/:programId" element={<DegreeProgramsList />} />
+        <Route path="/degree/:degreeId" element={<DegreeDetails />} />
       </Routes>
     </div>
   );
